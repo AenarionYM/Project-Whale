@@ -1,0 +1,3 @@
+repository "Project Whale@TEBStudio@cloud"
+  path "/"
+    smartbranch "/main/Test"

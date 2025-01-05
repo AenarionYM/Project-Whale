@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc15eb55bc1b59346a088011943afe52, type: 3}
+  m_Name: Marked For Death
+  m_EditorClassIdentifier: 
+  spellName: Marked For Death
+  spellIcon: {fileID: 5557814217517751381, guid: e772ee673628417429bd080f4a6dceb5, type: 3}
+  cooldownTime: 5
+  spellPrefab: {fileID: 6955249335554368080, guid: 61f0e1889c4591e4d94dd37324fa3bb9, type: 3}
