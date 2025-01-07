@@ -6298,8 +6298,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 07a6964448598f848a4305e07166bd55, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 575
-    m_Data: {fileID: -437363867770992897, guid: f68e18109776cf74bb447b7a19600c1d,
-      type: 3}
+    m_Data: {fileID: -437363867770992897, guid: f68e18109776cf74bb447b7a19600c1d, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -1663138961, guid: f68e18109776cf74bb447b7a19600c1d, type: 3}
   - m_RefCount: 1
@@ -6569,28 +6568,17 @@ MonoBehaviour:
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
   m_XRTrackingOrigin: {fileID: 0}
-  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
-  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
-  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
-  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
-  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
-  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
-  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
-  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
-  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
-  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
-  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
@@ -7191,7 +7179,8 @@ GameObject:
   - component: {fileID: 789722732}
   - component: {fileID: 789722733}
   - component: {fileID: 789722734}
-  m_Layer: 3
+  - component: {fileID: 789722735}
+  m_Layer: 0
   m_Name: Skeleton
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -7264,8 +7253,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4723107735738678597, guid: 0e50a6d3216086445bb4c9e6a23d95dd,
-    type: 3}
+  m_Sprite: {fileID: 4723107735738678597, guid: 0e50a6d3216086445bb4c9e6a23d95dd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7303,8 +7291,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8de0cb5c9cb22be48a68c096ee6eda84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  health: 1000
 --- !u!61 &789722731
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7408,6 +7394,18 @@ MonoBehaviour:
   maxMovementSpeed: 1
   sprintMultiplier: 0
   sprintAnimationMultiplier: 0
+--- !u!114 &789722735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789722726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19007fd59533441d83d3e6b16a0ffbae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &966638788
 GameObject:
   m_ObjectHideFlags: 0
@@ -8299,8 +8297,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 9017642172035962343, guid: 16c6ce261c9fd3148987beb86a09301f,
-    type: 3}
+  m_Sprite: {fileID: 9017642172035962343, guid: 16c6ce261c9fd3148987beb86a09301f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -8919,11 +8916,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  criticalChance: 0.2
-  criticalDamageMultiplier: 2
-  criticalSound: {fileID: 8300000, guid: 0fe30825702e5b344bccfe77ab347ae2, type: 3}
-  criticalHitEffect: {fileID: 1284954640031028581, guid: 446a8882fe5b7de4ea365c2cb7b8a5f0,
-    type: 3}
 --- !u!1 &2004822476
 GameObject:
   m_ObjectHideFlags: 0
@@ -9072,7 +9064,7 @@ MonoBehaviour:
   - {fileID: 1158063857}
   - {fileID: 216315441}
   - {fileID: 979126914}
-  assignedSpells: [{fileID: 11400000, guid: d1a9168b022093949a0d4507a8912a57, type: 2}]
+  assignedSpells: []
 --- !u!1 &2028349745
 GameObject:
   m_ObjectHideFlags: 0
