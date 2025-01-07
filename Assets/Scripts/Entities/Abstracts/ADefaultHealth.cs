@@ -1,13 +1,19 @@
-﻿using Enemies.FinalEnemies.BasicEnemy;
-using Enemies.Interfaces;
+﻿using Enemies.Abstracts;
+using Entities.Interfaces;
 using UnityEngine;
 
-namespace Enemies.Abstracts
+namespace Entities.Abstracts
 {
     public abstract class ADefaultHealth : MonoBehaviour, IHealth
     {
         [SerializeField] private float maxHealth;
         [SerializeField] private float currHealth;
+        private AnimationController animationController;
+
+        private void Start()
+        {
+            animationController = GetComponent<AnimationController>();
+        }
 
         public float MaxHealth
         {
@@ -21,22 +27,15 @@ namespace Enemies.Abstracts
             set => currHealth = value;
         }
         
-        private Animator _animator;
-
-        public void Initialize(Animator animator)
-        {
-            _animator = animator;
-        }
-
         public void Damage(float amount)
         {
             CurrHealth -= amount;
-            _animator.SetTrigger(BasicAnimationHashes.TakeDmg);
+            animationController.TriggerAnimation("TakeDmg");
 
             if (CurrHealth <= 0f)
             {
                 currHealth = 0f;
-                _animator.SetTrigger(BasicAnimationHashes.Die);
+                animationController.TriggerAnimation("Die");
             }
         }
 

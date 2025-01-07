@@ -1,17 +1,24 @@
 ﻿using Enemies.Abstracts;
+using Entities.Abstracts;
 using UnityEngine;
 
-namespace Enemies.FinalEnemies.BasicEnemy
+namespace Entities.FinalEnemies.BasicEnemy
 {
     public class BasicMovement : ADefaultMovement
     {
         [SerializeField] private float sprintAnimationMultiplier;
+        private AnimationController animationController;
 
-        public override void Move(Vector2 direction)
+        private void Start()
+        {
+            animationController = GetComponent<AnimationController>();
+        }
+        
+        public override void Walk(Vector2 direction)
         {
             Vector2 movement = direction * (MovementSpeed * Time.deltaTime);
             Rigidbody.MovePosition(Rigidbody.position + movement);
-            Animator.SetBool(BasicAnimationHashes.Walk, true);
+            animationController.TriggerAnimation("Walk");
         }
 
 
@@ -19,7 +26,7 @@ namespace Enemies.FinalEnemies.BasicEnemy
         {
             Vector2 movement = direction * (MovementSpeed * SprintMultiplier * Time.deltaTime);
             Rigidbody.MovePosition(Rigidbody.position + movement);
-            Animator.SetBool(BasicAnimationHashes.Walk, true);
+            animationController.TriggerAnimation("Walk", 1.5f);
         }
     }
 }
