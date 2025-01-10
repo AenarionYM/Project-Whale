@@ -14,7 +14,7 @@ namespace Entities.FinalEnemies.BasicEnemy
             animationController = GetComponent<AnimationController>();
         }
         
-        public override void Walk(Vector2 direction)
+        public void Walk(Vector2 direction)
         {
             Vector2 movement = direction * (MovementSpeed * Time.deltaTime);
             Rigidbody.MovePosition(Rigidbody.position + movement);
@@ -22,11 +22,21 @@ namespace Entities.FinalEnemies.BasicEnemy
         }
 
 
-        public override void Sprint(Vector2 direction)
+        public void Sprint(Vector2 direction)
         {
             Vector2 movement = direction * (MovementSpeed * SprintMultiplier * Time.deltaTime);
             Rigidbody.MovePosition(Rigidbody.position + movement);
             animationController.TriggerAnimation("Walk", 1.5f);
         }
+        
+        public override void MoveInDirection(Vector2 direction)
+        {
+            
+        }
+        
+        public override void MoveTo(Vector2 targetPosition)
+        {
+            
+        } 
     }
 }
