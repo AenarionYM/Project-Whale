@@ -23,12 +23,12 @@ namespace Entities.FinalEnemies.BasicEnemy
         // Subscriptable event for other scripts
         public event Action<IEntityState> OnStateChange;
 
-        private void Start()
+        private void Awake()
         {
             // Create instances of all used states
             States = new Dictionary<StateType, IEntityState>
             {
-                { StateType.Idle, new IdleState() }, { StateType.Chasing, new ChasingState() },
+                { StateType.Idle, new IdleState() },
                 { StateType.Attacking, new AttackState() },
                 { StateType.Chasing, new ChasingState() },
                 { StateType.Wandering, new WanderingState(transform.position) }, // Add other states here
@@ -40,7 +40,7 @@ namespace Entities.FinalEnemies.BasicEnemy
             AnimationController = GetComponent<AnimationController>();
 
             // Set initial state
-            TransitionToState(States[StateType.Attacking]);
+            TransitionToState(States[StateType.Wandering]);
         }
 
         private void Update()
