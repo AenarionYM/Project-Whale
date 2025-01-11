@@ -1,4 +1,5 @@
-﻿using Enemies.Abstracts;
+﻿using System;
+using Enemies.Abstracts;
 using Entities.Interfaces;
 using Entities.States;
 using UnityEngine;
@@ -10,19 +11,32 @@ namespace Entities.FinalEnemies.BasicEnemy
         // ReSharper disable once MemberCanBePrivate.Global
         public IEntityState CurrentState { get; private set; }
 
-        private readonly IdleState idleState = new IdleState();
-        private readonly ChasingState chasingState = new ChasingState();
-        private readonly AttackState attackingState = new AttackState();
-        private readonly WanderingState wanderingState = new WanderingState();
-
+        // Define other modules
         public IMovement Movement { get; set; }
         public AnimationController AnimationController { get; set; }
 
+        // Define active states
+        private IdleState idleState;
+        private ChasingState chasingState;
+        private AttackState attackingState;
+        private WanderingState wanderingState;
+        
+        // Subscriptable event for other scripts
+        public event Action<IEntityState> OnStateChanged;
+
         private void Start()
         {
+            // Create instances of all used states
+            idleState = new IdleState();
+            chasingState = new ChasingState();
+            attackingState = new AttackState();
+            wanderingState = new WanderingState(transform.position);
+            
+            // Get other modules
             Movement = GetComponent<IMovement>();
             AnimationController = GetComponent<AnimationController>();
 
+            // Set initial state
             TransitionToState(wanderingState);
         }
 
@@ -36,6 +50,7 @@ namespace Entities.FinalEnemies.BasicEnemy
             CurrentState?.ExitState(this);
             CurrentState = newState;
             CurrentState.EnterState(this);
+            OnStateChanged?.Invoke(CurrentState);
         }
     }
 }
