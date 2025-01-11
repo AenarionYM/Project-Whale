@@ -7180,6 +7180,7 @@ GameObject:
   - component: {fileID: 789722733}
   - component: {fileID: 789722734}
   - component: {fileID: 789722735}
+  - component: {fileID: 789722736}
   m_Layer: 0
   m_Name: Skeleton
   m_TagString: Enemy
@@ -7392,8 +7393,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 1
   maxMovementSpeed: 1
-  sprintMultiplier: 0
-  sprintAnimationMultiplier: 0
+  sprintMultiplier: 1.5
+  sprintAnimationMultiplier: 1.5
 --- !u!114 &789722735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7404,6 +7405,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19007fd59533441d83d3e6b16a0ffbae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &789722736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789722726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6e398735e464418b2cc6ede8b3068cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &966638788
@@ -8916,6 +8929,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
+  criticalChance: 0.2
+  criticalDamageMultiplier: 2
+  criticalSound: {fileID: 0}
+  criticalHitEffect: {fileID: 0}
 --- !u!1 &2004822476
 GameObject:
   m_ObjectHideFlags: 0
