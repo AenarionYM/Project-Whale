@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections;
-using Enemies.Abstracts;
+using Controllers;
 using Entities.Abstracts;
 using Entities.Interfaces;
+using Entities.States.Enums;
 using UnityEngine;
 
 namespace Entities.FinalEnemies.BasicEnemy
@@ -71,7 +72,15 @@ namespace Entities.FinalEnemies.BasicEnemy
         {
             while (Vector2.Distance(Rigidbody.position, targetPosition) > 0.1f)
             {
-                Walk(targetPosition);
+                switch (stateManager.CurrentState.MovementType)
+                {
+                    case MovementType.Walk:
+                        Walk(targetPosition);
+                        break;
+                    case MovementType.Sprint:
+                        Sprint(targetPosition);
+                        break;
+                }
                 yield return null;
             }
 
