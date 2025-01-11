@@ -1,7 +1,9 @@
 ﻿using System;
-using Enemies.Abstracts;
+using System.Collections.Generic;
+using Controllers;
 using Entities.Interfaces;
 using Entities.States;
+using Entities.States.Enums;
 using UnityEngine;
 
 namespace Entities.FinalEnemies.BasicEnemy
@@ -15,29 +17,30 @@ namespace Entities.FinalEnemies.BasicEnemy
         public IMovement Movement { get; set; }
         public AnimationController AnimationController { get; set; }
 
-        // Define active states
-        private IdleState idleState;
-        private ChasingState chasingState;
-        private AttackState attackingState;
-        private WanderingState wanderingState;
-        
+        // Dictionary of all possible states
+        public Dictionary<StateType, IEntityState> States { get; set; }
+
         // Subscriptable event for other scripts
-        public event Action<IEntityState> OnStateChanged;
+        public event Action<IEntityState> OnStateChange;
 
         private void Start()
         {
             // Create instances of all used states
-            idleState = new IdleState();
-            chasingState = new ChasingState();
-            attackingState = new AttackState();
-            wanderingState = new WanderingState(transform.position);
-            
+            States = new Dictionary<StateType, IEntityState>
+            {
+                { StateType.Idle, new IdleState() }, { StateType.Chasing, new ChasingState() },
+                { StateType.Attacking, new AttackState() },
+                { StateType.Chasing, new ChasingState() },
+                { StateType.Wandering, new WanderingState(transform.position) }, // Add other states here
+                { StateType.Dying, new DyingState() }, // Add other states here
+            };
+
             // Get other modules
             Movement = GetComponent<IMovement>();
             AnimationController = GetComponent<AnimationController>();
 
             // Set initial state
-            TransitionToState(wanderingState);
+            TransitionToState(States[StateType.Attacking]);
         }
 
         private void Update()
@@ -45,12 +48,12 @@ namespace Entities.FinalEnemies.BasicEnemy
             CurrentState.UpdateState(this);
         }
 
-        private void TransitionToState(IEntityState newState)
+        public void TransitionToState(IEntityState newState)
         {
             CurrentState?.ExitState(this);
             CurrentState = newState;
             CurrentState.EnterState(this);
-            OnStateChanged?.Invoke(CurrentState);
+            OnStateChange?.Invoke(CurrentState);
         }
     }
 }
