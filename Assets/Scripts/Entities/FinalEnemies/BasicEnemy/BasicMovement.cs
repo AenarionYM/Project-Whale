@@ -18,21 +18,27 @@ namespace Entities.FinalEnemies.BasicEnemy
         // Entity state updated by `OnStateChange` event
         private IEntityState currentState;
 
-        private void Start()
+        private void Awake()
         {
             // Get other modules
             animationController = GetComponent<AnimationController>();
             stateManager = GetComponent<BasicEnemyStateManager>();
-            stateManager.OnStateChanged += HandleStateChanged;
+            Rigidbody = GetComponent<Rigidbody2D>();
         }
 
-        private void OnDestroy()
+        private void OnEnable()
         {
-            stateManager.OnStateChanged -= HandleStateChanged;
+            stateManager.OnStateChange += HandleStateChange;
+            Debug.Log(stateManager);
+        }
+
+        private void OnDisable()
+        {
+            stateManager.OnStateChange -= HandleStateChange;
         }
 
 
-        private void HandleStateChanged(IEntityState newState)
+        private void HandleStateChange(IEntityState newState)
         {
             currentState = newState;
         }
@@ -63,7 +69,7 @@ namespace Entities.FinalEnemies.BasicEnemy
 
         private IEnumerator MoveToCoroutine(Vector2 targetPosition, Action onComplete)
         {
-            while (Vector2.Distance(transform.position, targetPosition) > 0.1f)
+            while (Vector2.Distance(Rigidbody.position, targetPosition) > 0.1f)
             {
                 Walk(targetPosition);
                 yield return null;

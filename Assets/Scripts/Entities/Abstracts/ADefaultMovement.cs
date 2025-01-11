@@ -13,12 +13,6 @@ namespace Entities.Abstracts
         protected Rigidbody2D Rigidbody;
         protected Animator Animator;
 
-
-        public void Initialize(Rigidbody2D entityRigidbody)
-        {
-            Rigidbody = entityRigidbody;
-        }
-
         public float SprintMultiplier
         {
             get => sprintMultiplier;

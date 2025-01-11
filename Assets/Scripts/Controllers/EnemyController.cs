@@ -1,5 +1,3 @@
-using System;
-using Enemies;
 using Entities.Interfaces;
 using UnityEngine;
 
@@ -18,15 +16,11 @@ namespace Controllers
 
         private void Awake()
         {
-            // Get Unity components
-            _rigidBody = GetComponent<Rigidbody2D>();
-            
             // Setup health
             _health = GetComponent<IHealth>();
 
             // Setup movement
             _movement = GetComponent<IMovement>();
-            _movement.Initialize(_rigidBody);
             
             // Setup states
             stateManager = GetComponent<IEntityStateManager>();
