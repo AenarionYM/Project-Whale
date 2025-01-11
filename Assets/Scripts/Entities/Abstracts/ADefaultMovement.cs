@@ -1,4 +1,5 @@
-﻿using Entities.Interfaces;
+﻿using System;
+using Entities.Interfaces;
 using UnityEngine;
 
 namespace Entities.Abstracts
@@ -38,6 +39,6 @@ namespace Entities.Abstracts
 
         public abstract void MoveInDirection(Vector2 direction);
 
-        public abstract void MoveTo(Vector2 targetPosition);
+        public abstract void MoveTo(Vector2 targetPosition, Action onComplete = null);
     }
 }

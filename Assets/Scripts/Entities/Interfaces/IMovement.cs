@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Entities.Interfaces
 {
@@ -9,6 +10,6 @@ namespace Entities.Interfaces
         float SprintMultiplier { get; set; }
         void Initialize(Rigidbody2D entityRigidbody);
         void MoveInDirection(Vector2 direction);
-        void MoveTo(Vector2 targetPosition);
+        void MoveTo(Vector2 targetPosition, Action onComplete = null);
     }
 }
