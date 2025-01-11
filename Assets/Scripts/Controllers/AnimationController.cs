@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Enemies.Abstracts
+namespace Controllers
 {
     public class AnimationController : MonoBehaviour
     {
         private Animator _animator;
-        public Dictionary<string, int> AnimationHashes { get; set; } = new();
+        private Dictionary<string, int> AnimationHashes { get; set; } = new();
+
         private void Start()
         {
             // Get attached animator
